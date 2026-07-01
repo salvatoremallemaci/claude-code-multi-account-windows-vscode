@@ -4,7 +4,7 @@ Run a personal and a work Claude account side by side in separate VS Code instan
 
 ---
 
-## The Problem
+## ❌ The Problem
 
 Claude Code stores all credentials and configuration in a single global directory:
 
@@ -16,7 +16,7 @@ This means only one account can be active system-wide at any time. Switching acc
 
 ---
 
-## The Solution
+## ✅ The Solution
 
 Claude Code respects the `CLAUDE_CONFIG_DIR` environment variable. When set, it reads and writes all credentials, session data, and configuration from that path instead of the default `%USERPROFILE%\.claude`.
 
@@ -24,14 +24,14 @@ By launching a second editor instance with this variable set to a different dire
 
 | Context | Editor | Account | Config Directory |
 | :--- | :--- | :--- | :--- |
-| System default | VS Code (blue) | Work | `%USERPROFILE%\.claude` |
-| Custom launcher | VS Code Insiders (green) | Personal | `%USERPROFILE%\.claude-personal` |
+| 🔵 System default | VS Code (blue) | Work | `%USERPROFILE%\.claude` |
+| 🟢 Custom launcher | VS Code Insiders (green) | Personal | `%USERPROFILE%\.claude-personal` |
 
 Each editor maintains its own credentials, session history, and rate limit tracking. There is no shared state between them.
 
 ---
 
-## Requirements
+## 📋 Requirements
 
 - Windows 11
 - [VS Code](https://code.visualstudio.com/) — for your work account
@@ -41,7 +41,7 @@ Each editor maintains its own credentials, session history, and rate limit track
 
 ---
 
-## Setup
+## 🛠️ Setup
 
 ### Step 1 — Install VS Code Insiders
 
@@ -78,21 +78,22 @@ For convenience, create a shortcut to the `.bat` file on your desktop:
    ```
 4. Complete the browser OAuth flow with your personal account credentials
 
-Claude Code will write its credentials to `%USERPROFILE%\.claude-personal`, leaving your work account in `%USERPROFILE%\.claude` untouched.
+> 💡 Claude Code will write its credentials to `%USERPROFILE%\.claude-personal`, leaving your work account in `%USERPROFILE%\.claude` untouched.
 
 ---
 
-## Daily Usage
+## 🚀 Daily Usage
 
-**Work account** — open standard VS Code normally. It uses the system default `%USERPROFILE%\.claude` directory and your work credentials.
-
-**Personal account** — open VS Code Insiders via the `.bat` launcher or desktop shortcut. It uses `%USERPROFILE%\.claude-personal` and your personal credentials.
+| | Account | How to open |
+| :--- | :--- | :--- |
+| 🔵 | **Work** | Open standard VS Code normally from taskbar or Start Menu |
+| 🟢 | **Personal** | Double-click the `claude-personal.bat` launcher or desktop shortcut |
 
 Integrated terminals inside each editor inherit the correct environment automatically. There is no manual switching, no credential swapping, and no shared state.
 
 ---
 
-## Verification
+## ✔️ Verification
 
 To confirm which account is active in any Claude Code session, run:
 
@@ -104,16 +105,16 @@ This displays the authenticated email address, organization, subscription plan, 
 
 ---
 
-## Notes
+## 📝 Notes
 
-- The `CLAUDE_CONFIG_DIR` variable is set only for the process launched by the script. All other terminals and applications on the system are unaffected.
-- Each config directory is fully independent: credentials, session history, project settings, and MCP server configurations are not shared.
-- This approach works with any two plan combinations (Pro + Pro, Pro + Team, Team + Team, etc.).
-- If your VS Code Insiders installation path differs, update the path in the `.bat` file accordingly. The default path is `%LOCALAPPDATA%\Programs\Microsoft VS Code Insiders\Code - Insiders.exe`.
+- 🔒 The `CLAUDE_CONFIG_DIR` variable is set only for the process launched by the script. All other terminals and applications on the system are unaffected.
+- 📁 Each config directory is fully independent: credentials, session history, project settings, and MCP server configurations are not shared.
+- 💳 This approach works with any two plan combinations (Pro + Pro, Pro + Team, Team + Team, etc.).
+- ⚙️ If your VS Code Insiders installation path differs, update the path in the `.bat` file accordingly. The default path is `%LOCALAPPDATA%\Programs\Microsoft VS Code Insiders\Code - Insiders.exe`.
 
 ---
 
-## References
+## 🔗 References
 
 - [Claude Code Documentation](https://code.claude.com/docs) — Official Claude Code docs, including authentication and configuration
 - [Claude Code on GitHub](https://github.com/anthropics/claude-code) — Official repository
@@ -124,7 +125,7 @@ This displays the authenticated email address, organization, subscription plan, 
 
 ---
 
-## Trademarks
+## ™️ Trademarks
 
 Claude™ and Claude Code™ are trademarks of Anthropic, PBC. Visual Studio Code® and Visual Studio Code Insiders® are registered trademarks of Microsoft Corporation. Windows® and Windows 11® are registered trademarks of Microsoft Corporation. All other trademarks and registered trademarks are the property of their respective owners.
 
